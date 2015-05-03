@@ -11,9 +11,25 @@
 |
 */
 
-Route::get('/', function()
+
+Route::group(array('before'=>'checkLogin'),function()
 {
-	return View::make('hello');
+	Route::get('/', function()
+	{
+		// return View::make('hello');
+		// header('location:admin');
+		echo 'hlloe login ok';
+	});
+
+	Route::get('admin/createUser', 'Admin\User\UserController@create');
+	Route::get('admin/test', 'Admin\User\UserController@test');
+	Route::get('admin/logout', 'Admin\LoginController@logout');
 });
 
-Route::get('admin', "Admin\User\UserController@index");
+
+
+
+Route::post('admin/auth', 'Admin\LoginController@auth');	//验证信息提交
+Route::get('admin/login', 'Admin\LoginController@show');		//登录页面
+Route::get('admin', 'Admin\LoginController@show');		//登录页面
+
