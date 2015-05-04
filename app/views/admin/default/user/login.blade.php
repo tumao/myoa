@@ -1,4 +1,4 @@
-@include('default.header')
+@include('default._shared.header')
 <script src="/default/app/js/login.js"></script>
 <div class="ch-container">
     <div class="row">
@@ -45,4 +45,4 @@
     </div><!--/fluid-row-->
 
 </div><!--/.fluid-container-->
-@include('default.footer')
+@include('default._shared.footer')

@@ -61,14 +61,7 @@ class UserController extends \BaseController {
 	 */
 	public function test()
 	{
-		if(\Sentry::check())
-		{
-			echo 'already loged in';
-		}
-		else
-		{
-			echo 'sorry not login';
-		}
+		
 	}
 	
 

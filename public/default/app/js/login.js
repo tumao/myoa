@@ -36,7 +36,6 @@ function userlogin()
 				alert(rp.message);
 				return false;
 			}
-			// window.location.href=rp.redirect_url;
 		}
 	})
 }

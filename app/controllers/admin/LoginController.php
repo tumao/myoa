@@ -19,6 +19,11 @@ class LoginController extends \BaseController {
 	 */
 	public function show()
 	{
+		if(\Sentry::check())
+		{
+			// header('location:/');
+			return \Redirect::to('/');
+		}
 		/*$this->layout->content = */
 		return \View::make("default.user.login");
 	}
@@ -42,7 +47,7 @@ class LoginController extends \BaseController {
 			$result = \Sentry::authenticate( $auths, $remember);
 			if($result)
 			{
-				return array('code'=>1, 'message'=>'LOGIN_SUCCESS', 'redirect_url' => '/');
+				return array('code'=>1, 'message'=>'LOGIN_SUCCESS', 'redirect_url' => '/admin/dashboard');
 			}
 		}
 		catch (\Cartalyst\Sentry\Users\LoginRequiredException $e)
@@ -84,7 +89,6 @@ class LoginController extends \BaseController {
 	public function logout()
 	{
 		\Sentry::logout();
-		\Redirect::to('admin/login');
-		// header('location:/admin/login')
+		return \Redirect::to('admin/login');
 	}
 }

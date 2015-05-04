@@ -23,9 +23,12 @@
     <link href='/default/framework/css/jquery.iphone.toggle.css' rel='stylesheet'>
     <link href='/default/framework/css/uploadify.css' rel='stylesheet'>
     <link href='/default/framework/css/animate.min.css' rel='stylesheet'>
+    <link rel="stylesheet" href="/default/framework/css/artDialog.default.css">
 
     <!-- jQuery -->
     <script src="/default/framework/bower_components/jquery/jquery.min.js"></script>
+    <script src="/default/framework/js/artDialog.source.js"></script>
+    <script src="/default/framework/js/iframeTools.source.js"></script>
 
     <!-- The HTML5 shim, for IE6-8 support of HTML5 elements -->
     <!--[if lt IE 9]>
@@ -33,6 +36,6 @@
     <![endif]-->
 
     <!-- The fav icon -->
-    <link rel="shortcut icon" href="img/favicon.ico">
+    <link rel="shortcut icon" href="/default/framework/img/favicon.ico">
 
 </head>

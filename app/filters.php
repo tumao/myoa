@@ -92,7 +92,6 @@ Route::filter('csrf', function()
 Route::filter('checkLogin',function(){
 	if(!\Sentry::check())
 	{
-		echo 222;
 		return Redirect::to('admin/login');
 	}
 });
