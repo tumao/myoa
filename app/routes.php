@@ -20,10 +20,22 @@ Route::group(array('before'=>'checkLogin'),function()
 		// header('location:admin');
 		echo 'hello login ok';
 	});
-
-	Route::get('admin/createUser', 'Admin\User\UserController@create');
-	Route::get('admin/test', 'Admin\User\UserController@test');
+	#user
 	Route::get('admin/logout', 'Admin\LoginController@logout');
+
+	Route::get('admin/user', 'Admin\User\UserController@index');		
+	Route::get('admin/user/userconf', 'Admin\User\UserController@userList');	//用户列表
+	Route::get('admin/user/user_form/{id?}', 'Admin\User\UserController@userForm');		//添加用户的对话框
+	Route::post('admin/user/create_user', 'Admin\User\UserController@createUser');		//创建用户
+	Route::post('addmin/user/update_user', 'Admin\User\UserController@updateUser');	//更新用户信息
+	Route::get('admin/user/del_user/{id}', 'Admin\User\UserController@delUser');
+
+	Route::get('admin/user/groups', 'Admin\User\GroupController@groups');	//分组列表
+
+	Route::get('admin/user/permissions', 'Admin\User\PermissionsController@permissions');	//权限列表
+	Route::get('admin/user/save_permissions', 'Admin\User\PermissionsController@savePermissons');
+	Route::get('admin/user/edit_permissions/{id}', 'Admin\User\PermissionsController@editPermissions');
+	Route::get('admin/user/del_permission/{id}', 'Admin\User\PermissionsController@delPermission');
 
 	#conf
 	Route::get('admin/conf', 'Admin\Menu\MenuController@index');
