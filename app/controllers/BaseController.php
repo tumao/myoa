@@ -41,6 +41,7 @@ class BaseController extends Controller {
 	 */
 	private function _find_main_menu($list)
 	{
+		$navbar = $this->navbar($list);
 		$main_menu = array();
 		$sub_menu = array();
 		foreach ($list as $x)
@@ -65,6 +66,7 @@ class BaseController extends Controller {
 		}
 		$menu['main_menu'] = $main_menu;
 		$menu['sub_menu'] = $sub_menu;
+		$menu['navbar'] = $navbar;
 		return $menu;
 	}
 
@@ -124,6 +126,20 @@ class BaseController extends Controller {
 		$uriformat = preg_replace('/(\/)+/iu', '/', $_SERVER['REQUEST_URI'].'/');
 		$uri	= preg_replace('/(\/)+/iu', '/', $uri.'/');
 		return strstr($uriformat, $uri) !== false;
+	}
+
+	private function navbar($list)
+	{
+		$nvabar = array();
+		foreach($list as $item)
+		{
+			if($this->_find_uri_curr($item->path))
+			{
+				$navbar[] = $item;
+			}
+		}
+
+		return $navbar;
 	}
 
 }

@@ -47,6 +47,7 @@ var User = {
 						data 	: formData,
 						success : function(rp){
 							art.dialog.tips(rp.info, 1.5);
+							location.reload();
 						}
 					});
 					return true;
@@ -101,10 +102,12 @@ var User = {
 					dataType: 'json',
 					data 	: {id:id,password:newPasswd},
 					success : function(rp){
-
+						if(rp.code >0) {
+							art.dialog.tips(rp.message, 1.5);
+							return true;
+						}
 					}
 				});
-				return false;
 			},
 			cancel 	: true,
 			resize 	: false,
@@ -115,11 +118,11 @@ var User = {
 /*输入验证*/
 var Check = {
 	user_form:function(input,form,id){		//验证 创建用户
-		if( input.username == ''){
-			art.dialog.tips('用户名不可为空！',2);
-			form['username'].focus();
-			return false;
-		}
+		// if( input.username == ''){
+		// 	art.dialog.tips('用户名不可为空！',2);
+		// 	form['username'].focus();
+		// 	return false;
+		// }
 		if( input.email == ''){
 			art.dialog.tips('邮箱不可为空！',2);
 			form['email'].focus();

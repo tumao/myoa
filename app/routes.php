@@ -27,10 +27,16 @@ Route::group(array('before'=>'checkLogin'),function()
 	Route::get('admin/user/userconf', 'Admin\User\UserController@userList');	//用户列表
 	Route::get('admin/user/user_form/{id?}', 'Admin\User\UserController@userForm');		//添加用户的对话框
 	Route::post('admin/user/create_user', 'Admin\User\UserController@createUser');		//创建用户
-	Route::post('addmin/user/update_user', 'Admin\User\UserController@updateUser');	//更新用户信息
+	Route::post('admin/user/update_user', 'Admin\User\UserController@updateUser');	//更新用户信息
 	Route::get('admin/user/del_user/{id}', 'Admin\User\UserController@delUser');
+	Route::get('admin/user/self', 'Admin\User\UserController@userSelf');
+	Route::post('admin/user/pass_reset', 'Admin\User\UserController@passReset');
 
 	Route::get('admin/user/groups', 'Admin\User\GroupController@groups');	//分组列表
+	Route::get('admin/user/group_form/{id?}', 'Admin\User\GroupController@groupForm'); 	//添加(修改)用户组 对话框
+	Route::get('admin/user/create_group', 'Admin\User\GroupController@createGroup');	//创建分组
+	Route::get('admin/user/update_group/{id}', 'Admin\User\GroupController@updateGroup');	//更新组
+	Route::get('admin/user/del_group/{id}', 'Admin\User\GroupController@delGroup'); 	//删除组
 
 	Route::get('admin/user/permissions', 'Admin\User\PermissionsController@permissions');	//权限列表
 	Route::get('admin/user/save_permissions', 'Admin\User\PermissionsController@savePermissons');
@@ -45,12 +51,15 @@ Route::group(array('before'=>'checkLogin'),function()
 	Route::get('admin/conf/del_menu_item/{id}', 'Admin\Menu\MenuController@delMenuItem');
 	Route::get('admin/conf/edit_menu/', 'Admin\Menu\MenuController@editMenuItem');
 
-	#index
+	#index 仪表盘
 	Route::get('admin/dashboard', 'Admin\Index\DashboardController@index');
 	Route::get('admin/dashboard/index', 'Admin\Index\DataController@index');
 	Route::get('admin/dashboard/sys', 'Admin\Index\SysController@index');
 	Route::get('admin/dashboard/dashboard', 'Admin\Index\DashboardController@index');
 	Route::get('admin/dashboard/census', 'Admin\Index\CensusController@index');
+
+	#rc
+	Route::get('admin/rc', 'Admin\Resource\RcController@index');
 });
 
 

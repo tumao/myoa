@@ -11,6 +11,7 @@ return array(
     'Admin\\Index\\DataController' => $baseDir . '/app/controllers/admin/index/DataController.php',
     'Admin\\LoginController' => $baseDir . '/app/controllers/admin/LoginController.php',
     'Admin\\Menu\\MenuController' => $baseDir . '/app/controllers/admin/conf/MenuController.php',
+    'Admin\\Resource\\RcController' => $baseDir . '/app/controllers/admin/rc/RcController.php',
     'Admin\\User\\AuthController' => $baseDir . '/app/controllers/admin/user/AuthController.php',
     'Admin\\User\\GroupController' => $baseDir . '/app/controllers/admin/user/GroupController.php',
     'Admin\\User\\PermissionsController' => $baseDir . '/app/controllers/admin/user/PermissionsController.php',

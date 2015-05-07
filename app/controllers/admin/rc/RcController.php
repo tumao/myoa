@@ -1,6 +1,6 @@
-<?php 	namespace Admin\Index;
+<?php namespace Admin\Resource;
 
-class CensusController extends \BaseController {
+class RcController extends \BaseController {
 
 	/**
 	 * Display a listing of the resource.
@@ -10,7 +10,6 @@ class CensusController extends \BaseController {
 	public function index()
 	{
 		//
-		$this->layout->content = \View::make('default.index.census.index');
 	}
 
 

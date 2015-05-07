@@ -143,9 +143,9 @@ class UserController extends \BaseController {
 		    $user_info = \Sentry::findUserById($user['id']);		//通过id查找用户
 
 		    // 更新用户信息
-		    $user_info->name = $user['username'];
+		    // $user_info->name = $user['username'];
 		    $user_info->email = $user['email'];
-		    $user_info->real_name = $user['real_name'];
+		    $user_info->first_name = $user['first_name'];
 		    $this->assign_group_to_user($user['id'],array($user['groupName']));
 		    if ($user_info->save())									//保存修改
 		    {
@@ -195,6 +195,71 @@ class UserController extends \BaseController {
 		{
 		    return array('code' => -2, 'info' => '用户不存在');	//用户不存在 （用户不存在或者被软删除）
 		}
+	}
+
+	/**
+	 * 用户注册/管理员创建用户
+	 *
+	 * @return Response
+	 */
+	public function passReset()
+	{
+		if(\Request::isMethod('post'))
+		{
+			$input = \Input::only('id','password');
+		}
+		$user = \Sentry::findUserById($input['id']);
+		$user->password = $input['password'];
+		$user->save();
+		return array('code'=> 1, 'message'=> 'PASSWORD_RESET_SUCCESS');
+	}
+
+	/**
+	 * 给用户重新分配组
+	 *
+	 * @param $user_id, (array)$group = array('group1','group2')
+	 *
+	 * @return 
+	 */
+
+	private function assign_group_to_user($user_id, $group)
+	{
+		try
+		{
+		    // Find the user using the user id
+		    $user = \Sentry::findUserById($user_id);
+
+		    $old_groups = $user->getGroups();		//用户原有的组
+		    foreach( $old_groups as $old_group)			//删除用户原有的所有组
+		    {
+		    	$x = \Sentry::findGroupById($old_group['id']);
+		    	$user->removeGroup($x);
+		    }
+		    foreach($group as $gName)				//给用户分配新的组
+		    {
+		    	$x = \Sentry::findGroupByName($gName);
+		    	$user->addGroup($x);
+		    }
+		}
+		catch (\Cartalyst\Sentry\Users\UserNotFoundException $e)
+		{
+		    echo 'User was not found.';
+		}
+		catch (\Cartalyst\Sentry\Groups\GroupNotFoundException $e)
+		{
+		    echo 'Group was not found.';
+		}
+	}
+
+
+	/**
+	 * 用户注册/管理员创建用户
+	 *
+	 * @return Response
+	 */
+	public function userSelf()
+	{
+		
 	}
 
 

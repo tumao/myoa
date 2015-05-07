@@ -14,17 +14,9 @@
 
         <div id="content" class="col-lg-10 col-sm-10">
             <!-- content starts -->
-                <div>
-			        <ul class="breadcrumb">
-			            <li>
-			                <a href="#">仪表盘</a>
-			            </li>
-			            <li>
-			                <a href="#">CNZZ统计</a>
-			            </li>
-			        </ul>
-			    </div>
-
+           		 <!-- navbar start -->
+               @include('default._shared.navbar')
+				<!-- navbar end -->
 			    <div class="row">
 			        <div class="box col-md-12">
 						@yield('content')
