@@ -22,7 +22,7 @@ class LoginController extends \BaseController {
 		if(\Sentry::check())
 		{
 			// header('location:/');
-			return \Redirect::to('/');
+			return \Redirect::to('/admin/dashboard');
 		}
 		/*$this->layout->content = */
 		return \View::make("default.user.login");

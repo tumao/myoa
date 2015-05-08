@@ -65,6 +65,6 @@ Route::group(array('before'=>'checkLogin'),function()
 
 
 Route::post('admin/auth', 'Admin\LoginController@auth');	//验证信息提交
-Route::get('admin/login', 'Admin\LoginController@show');		//登录页面
+Route::get('admin/login', array('uses'=>'Admin\LoginController@show', 'as'=> 'login'));		//登录页面
 Route::get('admin', 'Admin\LoginController@show');		//登录页面
 

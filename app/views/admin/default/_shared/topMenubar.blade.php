@@ -18,9 +18,9 @@
                 <span class="caret"></span>
             </button>
             <ul class="dropdown-menu">
-                <li><a href="#">个人详情</a></li>
+                <li><a href="/admin/user/self">个人详情</a></li>
                 <li class="divider"></li>
-                <li><a href="login.html">退出</a></li>
+                <li><a href="/admin/logout">退出</a></li>
             </ul>
         </div>
         <!-- user dropdown ends -->

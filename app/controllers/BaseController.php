@@ -6,7 +6,10 @@ class BaseController extends Controller {
 
 	public function __construct()
 	{
-		$this->_do_system_page_init();
+		if( \Route::currentRouteName() != 'login')
+		{
+			$this->_do_system_page_init();
+		}
 	}
 	/**
 	 * Setup the layout used by the controller.
@@ -130,7 +133,7 @@ class BaseController extends Controller {
 
 	private function navbar($list)
 	{
-		$nvabar = array();
+		$navbar = array();
 		foreach($list as $item)
 		{
 			if($this->_find_uri_curr($item->path))
@@ -138,7 +141,6 @@ class BaseController extends Controller {
 				$navbar[] = $item;
 			}
 		}
-
 		return $navbar;
 	}
 
