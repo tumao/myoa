@@ -9,6 +9,7 @@ return array(
     'Admin\\Index\\CensusController' => $baseDir . '/app/controllers/admin/index/CensusController.php',
     'Admin\\Index\\DashboardController' => $baseDir . '/app/controllers/admin/index/DashboardController.php',
     'Admin\\Index\\DataController' => $baseDir . '/app/controllers/admin/index/DataController.php',
+    'Admin\\Index\\SysController' => $baseDir . '/app/controllers/admin/index/SysController.php',
     'Admin\\LoginController' => $baseDir . '/app/controllers/admin/LoginController.php',
     'Admin\\Menu\\MenuController' => $baseDir . '/app/controllers/admin/conf/MenuController.php',
     'Admin\\Resource\\RcController' => $baseDir . '/app/controllers/admin/rc/RcController.php',

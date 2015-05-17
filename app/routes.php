@@ -11,14 +11,12 @@
 |
 */
 
-
+//后台
 Route::group(array('before'=>'checkLogin'),function()
 {
 	Route::get('/', function()
 	{
-		// return View::make('hello');
-		// header('location:admin');
-		echo 'hello login ok';
+		return Redirect::to('admin');
 	});
 	#user
 	Route::get('admin/logout', 'Admin\LoginController@logout');
@@ -67,4 +65,3 @@ Route::group(array('before'=>'checkLogin'),function()
 Route::post('admin/auth', 'Admin\LoginController@auth');	//验证信息提交
 Route::get('admin/login', array('uses'=>'Admin\LoginController@show', 'as'=> 'login'));		//登录页面
 Route::get('admin', 'Admin\LoginController@show');		//登录页面
-
