@@ -21,7 +21,7 @@ Route::group(array('before'=>'checkLogin'),function()
 	#user
 	Route::get('admin/logout', 'Admin\LoginController@logout');
 
-	Route::get('admin/user', 'Admin\User\UserController@index');		
+	Route::get('admin/user', 'Admin\User\UserController@index');
 	Route::get('admin/user/userconf', 'Admin\User\UserController@userList');	//用户列表
 	Route::get('admin/user/user_form/{id?}', 'Admin\User\UserController@userForm');		//添加用户的对话框
 	Route::post('admin/user/create_user', 'Admin\User\UserController@createUser');		//创建用户
