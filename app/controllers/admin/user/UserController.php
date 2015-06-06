@@ -67,7 +67,7 @@ class UserController extends \BaseController {
 	public function userList()
 	{
 		$all_users = \Sentry::findAllUsers();
-		foreach ($all_users as & $user) 
+		foreach ($all_users as & $user)
 		{
 
 			$group_arr = array();
@@ -128,9 +128,9 @@ class UserController extends \BaseController {
 	/**
 	 * 更新用户信息
 	 *
-	 * @param 
+	 * @param
 	 *
-	 * @return 
+	 * @return
 	 */
 	public function updateUser()
 	{
@@ -189,7 +189,7 @@ class UserController extends \BaseController {
 			{
 				return array('code' => -1,'info'=> '当前用户无权限删除用户!');
 			}
-		    
+
 		}
 		catch (\Cartalyst\Sentry\Users\UserNotFoundException $e)
 		{
@@ -219,7 +219,7 @@ class UserController extends \BaseController {
 	 *
 	 * @param $user_id, (array)$group = array('group1','group2')
 	 *
-	 * @return 
+	 * @return
 	 */
 
 	private function assign_group_to_user($user_id, $group)
@@ -259,11 +259,11 @@ class UserController extends \BaseController {
 	 */
 	public function userSelf()
 	{
-		
+
 	}
 
 
-	
+
 
 
 }

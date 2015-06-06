@@ -12,7 +12,7 @@
 */
 
 //后台
-Route::group(array('before'=>'checkLogin'),function()
+Route::group( array('before'=>'checkLogin'), function()
 {
 	Route::get('/', function()
 	{
